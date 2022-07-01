@@ -1,0 +1,38 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import CardArticleWidget common.widgets.cardArticleWidget
+<CardArticleWidget>:
+    line_color:(0.2, 0.2, 0.2, 0.8)
+    style:"elevated"
+    size_hint_y:None
+    BoxLayout:
+        orientation:'horizontal'
+        AsyncImage:
+            id:image_article
+            source: ""
+        MDLabel:
+            id:label_name
+            text: ""
+        MDTextField:
+            id:text_field_amount
+            size_hint_y:None
+            hint_text:"cantidad"
+            input_filter: 'float'
+        MDTextField:
+            id:text_field_price
+            size_hint_y:None
+            hint_text:"precio Unitario"
+            input_filter: 'float'
+        TooltipMDIconButton:
+            icon: "delete"
+            tooltip_text: "Eliminar articulo"
+            on_press: root.delete()
+        TooltipMDIconButton:
+            icon: "content-save"
+            tooltip_text: "Guardar cambios"
+            on_press: root.update()
+        TooltipMDIconButton:
+            icon: "book-open"
+            tooltip_text: "ver mas detalles"
+            on_press: root.seeMore()
+
+<TooltipMDIconButton@MDIconButton+MDTooltip>

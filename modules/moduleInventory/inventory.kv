@@ -1,0 +1,31 @@
+#:import InventoryMDCard modules.moduleInventory.inventory.InventoryMDCard
+
+<InventoryMDCard>:
+    BoxLayout:
+        orientation:'vertical'
+        MDRelativeLayout:
+            size_hint_y: None
+            height: text_field_code_bar.height
+            MDTextField:
+                id: text_field_code_bar
+                hint_text:"codigo de barra"
+                icon_left: "barcode"
+                on_text_validate: root.getArticles()
+                mode:"fill"
+        MDCard:
+            padding:dp(8)   
+            ScrollView:
+                RecycleView:
+                    id:recycle_view_articles
+                    viewclass: 'CardArticleWidget'
+                    RecycleGridLayout:
+                        default_size: None, dp(56)
+                        default_size_hint: 1, None
+                        padding:dp(8)
+                        spacing:dp(8)
+                        size_hint_y: None
+                        height: self.minimum_height
+                        multiselect: True
+                        touch_multiselect: True
+                        cols: 2
+                

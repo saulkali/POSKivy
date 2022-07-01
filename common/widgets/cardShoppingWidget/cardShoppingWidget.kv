@@ -1,0 +1,21 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+<CardShoppingWidget>:
+    line_color:(0.2, 0.2, 0.2, 0.8)
+    style:"elevated"
+    size_hint_y:None
+    BoxLayout:
+        orientation:'horizontal'
+        AsyncImage:
+            id:image_article
+            source: "https://areajugones.sport.es/wp-content/uploads/2022/02/aedad-1080x609.jpg"
+        MDLabel:
+            id:label_name
+            text:"sabritas"
+        MDTextField:
+            id:text_field_amount
+            size_hint_y:None
+            hint_text:"cantidad"
+            input_filter: 'float'
+        MDIconButton:
+            icon: "delete"
+            on_press: root.delete()

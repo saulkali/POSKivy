@@ -1,0 +1,59 @@
+#:import ShoppingCarMDCard modules.moduleShoppingCar.shoppingCar.ShoppingCarMDCard
+<ShoppingCarMDCard>:
+    padding:dp(8)
+    spacing:dp(8)
+    BoxLayout:
+        orientation:"horizontal"
+        
+        BoxLayout:
+            orientation:'vertical'
+            MDRelativeLayout:
+                size_hint_y: None
+                height: text_field_code_bar.height
+                MDTextField:
+                    id: text_field_code_bar
+                    hint_text:"codigo de barra"
+                    icon_left: "barcode"
+                    on_text_validate: root.searchArticle(self.text)
+                    mode:"fill"
+
+            MDCard:
+                elevation:dp(8)
+                size_hint_y:0.2
+                BoxLayout:
+                    orientation:'horizontal'
+                    BoxLayout:
+                        orientation:'horizontal'
+                        MDLabel:
+                            text:"Total"
+                        MDLabel:
+                            id:label_total_pay
+                            text:"$0.0"
+                    BoxLayout:
+                        orientation:'horizontal'
+                        MDLabel:
+                            text:"Cambio"
+                        MDLabel:
+                            id:label_total_pay
+                            text:"$0.0"
+                    BoxLayout:
+                        orientation:'horizontal'
+                        MDLabel:
+                            text:"Pago"
+                        MDLabel:
+                            id:label_total_pay
+                            text:"$0.0"
+                    BoxLayout:
+                        orientation:'horizontal'
+                        MDLabel:
+                            text:"Modo Del Sistema"
+                        MDLabel:
+                            id:label_total_pay
+                            text:"Carrito De Venta"
+            MDCard:
+                padding:dp(8)   
+                ScrollView:
+                    MDList:
+                        id:shopping_car_container
+                        spacing:8
+        
