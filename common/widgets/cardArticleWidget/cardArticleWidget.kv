@@ -3,36 +3,47 @@
 <CardArticleWidget>:
     line_color:(0.2, 0.2, 0.2, 0.8)
     style:"elevated"
+    on_touch_down: root.seeMore()
     size_hint_y:None
     BoxLayout:
-        orientation:'horizontal'
+        orientation:'vertical'
+        padding:dp(8)
         AsyncImage:
             id:image_article
             source: ""
         MDLabel:
+            id:label_code_bar
+            halign: "center"
+            text: ""
+        MDLabel:
             id:label_name
+            halign: "center"
             text: ""
         MDTextField:
             id:text_field_amount
             size_hint_y:None
             hint_text:"cantidad"
+            icon_left:"archive"
             input_filter: 'float'
         MDTextField:
             id:text_field_price
             size_hint_y:None
             hint_text:"precio Unitario"
+            icon_left:"cash"
             input_filter: 'float'
-        TooltipMDIconButton:
-            icon: "delete"
-            tooltip_text: "Eliminar articulo"
-            on_press: root.delete()
-        TooltipMDIconButton:
-            icon: "content-save"
-            tooltip_text: "Guardar cambios"
-            on_press: root.update()
-        TooltipMDIconButton:
-            icon: "book-open"
-            tooltip_text: "ver mas detalles"
-            on_press: root.seeMore()
+        BoxLayout:
+            orientation:'horizontal'
+            TooltipMDIconButton:
+                icon: "delete"
+                tooltip_text: "Eliminar articulo"
+                on_press: root.delete()
+            TooltipMDIconButton:
+                icon: "content-save"
+                tooltip_text: "Guardar cambios"
+                on_press: root.update()
+            TooltipMDIconButton:
+                icon: "book-open"
+                tooltip_text: "ver mas detalles"
+                on_press: root.seeMore()
 
 <TooltipMDIconButton@MDIconButton+MDTooltip>

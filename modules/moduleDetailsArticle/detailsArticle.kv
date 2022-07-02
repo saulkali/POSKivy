@@ -1,0 +1,70 @@
+#:import DetailsArticleScreen modules.moduleDetailsArticle
+<DetailsArticleScreen>:
+    id:details_article_box_layout
+    orientation:'vertical'
+    size_hint_y: None
+    height: "500dp"
+    ScrollView:
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+
+            AsyncImage:
+                id:image_photo
+            MDTextField:
+                id:text_field_photo_url
+                hint_text:"url de la imagen"
+                icon_left:"link"
+            MDTextField:
+                id:text_field_code_bar
+                hint_text:"codigo de barra"
+                icon_left:"barcode"
+            MDTextField:
+                id:text_field_code_bar_confirm
+                hint_text:"confirmar codigo de barra"
+                icon_left:"barcode"
+            MDTextField:
+                id:text_field_name
+                hint_text:"nombre del articulo"
+                icon_left:"book-open-outline"
+            MDTextField:
+                id:text_field_description
+                hint_text:"despcripcion del articulo"
+                icon_left:"book-open-outline"
+            GridLayout:
+                cols:2
+                size_hint_y:None
+                height: self.minimum_height
+                spacing: dp(8), dp(8)
+                
+                MDTextField:
+                    id:text_field_amount
+                    hint_text: "Cantidad"
+                
+                MDTextField:
+                    id:text_field_price
+                    hint_text: "Precio Unitario"
+                MDTextField:
+                    id: text_field_off_sale
+                    hint_text: "Descuento"
+                ToolTipMDDropDownItem:
+                    id:drop_down_item_mode_shopping
+                    tooltip_text: "Modo de venta "
+                    text:"Modo de venta"
+                    on_release: self.set_item("New Item")
+                ToolTipMDDropDownItem:
+                    id:drop_down_item_category
+                    tooltip_text: "Categoria del articulo"
+                    text:"Categoria"
+                    on_release: self.set_item("New Item")
+                MDTextField:
+                    id: text_field_shelf
+                    hint_text: "Estante"
+                MDTextField:
+                    id: text_field_vertical
+                    hint_text: "Vertical"
+                MDTextField:
+                    id: text_field_horizontal
+                    hint_text: "Horizontal"
+<ToolTipMDDropDownItem@MDDropDownItem+MDTooltip>

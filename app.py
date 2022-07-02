@@ -5,19 +5,21 @@ from kivy.uix.screenmanager import ScreenManager
 
 #modules
 from modules.moduleMain.main import MainScreen
-
 from helper import getFile
 
-Builder.load_file(getFile("modules/moduleMain/main.kv"))
 Builder.load_file(getFile("common/widgets/cardArticleWidget/cardArticleWidget.kv"))
 Builder.load_file(getFile("common/widgets/cardShoppingWidget/cardShoppingWidget.kv"))
+
+Builder.load_file(getFile("modules/moduleMain/main.kv"))
+Builder.load_file(getFile("modules/moduleDetailsArticle/detailsArticle.kv"))
+
 class ManagerScreens(ScreenManager):
     def __init__(self):
         super().__init__()
         self.setupScreens()
 
     def setupScreens(self):
-        shoppingCarScreen = MainScreen()
+        shoppingCarScreen = MainScreen(name="mainScreen")
         self.add_widget(shoppingCarScreen)
         
 

@@ -31,8 +31,12 @@ class ShoppingCarMDCard(MDCard):
                 cardShopping = CardShoppingWidget(shoppingEntity)
                 self.addArticleShoppingCar(cardShopping)
             else:
-                dialog = MDDialog(text = "Articulo No encontrado")
+                dialog = MDDialog(title = strings.msg_article_not_found)
                 dialog.open()
             self.clearFields()
         else:
-            pass
+            dialog = MDDialog(title = strings.msg_code_bar_search_is_empty)
+            dialog.open()
+
+    def clearShoppingCar(self):
+        print("clear shopping car")

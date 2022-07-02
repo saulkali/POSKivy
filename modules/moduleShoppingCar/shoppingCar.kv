@@ -4,9 +4,9 @@
     spacing:dp(8)
     BoxLayout:
         orientation:"horizontal"
-        
         BoxLayout:
             orientation:'vertical'
+            spacing:dp(8)
             MDRelativeLayout:
                 size_hint_y: None
                 height: text_field_code_bar.height
@@ -16,44 +16,55 @@
                     icon_left: "barcode"
                     on_text_validate: root.searchArticle(self.text)
                     mode:"fill"
-
             MDCard:
-                elevation:dp(8)
+                line_color:(0.2, 0.2, 0.2, 0.8)
+                style:"elevated"
                 size_hint_y:0.2
+                padding:dp(8)
                 BoxLayout:
                     orientation:'horizontal'
                     BoxLayout:
                         orientation:'horizontal'
+                        
                         MDLabel:
                             text:"Total"
+                            font_style:"H6"
                         MDLabel:
                             id:label_total_pay
                             text:"$0.0"
+                            font_style:"H6"
                     BoxLayout:
                         orientation:'horizontal'
                         MDLabel:
                             text:"Cambio"
+                            font_style:"H6"
                         MDLabel:
                             id:label_total_pay
                             text:"$0.0"
+                            font_style:"H6"
                     BoxLayout:
                         orientation:'horizontal'
                         MDLabel:
                             text:"Pago"
+                            font_style:"H6"
                         MDLabel:
                             id:label_total_pay
                             text:"$0.0"
-                    BoxLayout:
-                        orientation:'horizontal'
-                        MDLabel:
-                            text:"Modo Del Sistema"
-                        MDLabel:
-                            id:label_total_pay
-                            text:"Carrito De Venta"
+                            font_style:"H6"
             MDCard:
+                line_color:(0.2, 0.2, 0.2, 0.8)
+                style:"elevated"
                 padding:dp(8)   
                 ScrollView:
                     MDList:
                         id:shopping_car_container
                         spacing:8
-        
+            TooltipMDFloatingActionButton:
+                id:floating_button_clear_shopping_car
+                icon:'basket-remove'
+                type:"large"
+                tooltip_text: "Limpiar Carrito de ventas"
+                theme_icon_color:"Custom"
+                on_press: root.clearShoppingCar()
+
+<TooltipMDFloatingActionButton@MDFloatingActionButton+MDTooltip>

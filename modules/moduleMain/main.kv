@@ -3,7 +3,6 @@
 #:include modules/moduleInventory/inventory.kv
 <MainScreen>:
     id:main_screen
-    name:"mainScreen"
     MDBoxLayout:
         orientation:'vertical'
         MDTopAppBar:
@@ -26,7 +25,7 @@
                 
                 ShoppingCarMDCard:
                     id:card_shopping_car
-
+                
             MDBottomNavigationItem:
                 name: 'screen 2'
                 text: 'Inventario'
@@ -35,6 +34,7 @@
 
                 InventoryMDCard:
                     id:inventory
+                
 
             MDBottomNavigationItem:
                 name: 'screen 3'

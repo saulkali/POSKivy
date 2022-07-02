@@ -1,8 +1,9 @@
 #:import InventoryMDCard modules.moduleInventory.inventory.InventoryMDCard
-
 <InventoryMDCard>:
     BoxLayout:
         orientation:'vertical'
+        spacing: dp(8)
+        padding: dp(8)
         MDRelativeLayout:
             size_hint_y: None
             height: text_field_code_bar.height
@@ -10,7 +11,7 @@
                 id: text_field_code_bar
                 hint_text:"codigo de barra"
                 icon_left: "barcode"
-                on_text_validate: root.getArticles()
+                on_text_validate:root.filterArticles()
                 mode:"fill"
         MDCard:
             padding:dp(8)   
@@ -18,14 +19,18 @@
                 RecycleView:
                     id:recycle_view_articles
                     viewclass: 'CardArticleWidget'
-                    RecycleGridLayout:
-                        default_size: None, dp(56)
-                        default_size_hint: 1, None
+                    MDRecycleGridLayout:
+                        default_size: None, dp(400)
+                        default_size_hint: 1,None
+                        adaptive_height: True
                         padding:dp(8)
                         spacing:dp(8)
-                        size_hint_y: None
-                        height: self.minimum_height
-                        multiselect: True
-                        touch_multiselect: True
-                        cols: 2
-                
+                        cols: 3
+        TooltipMDFloatingActionButton:
+            id:floating_button_add_article
+            icon:'delete'
+            tooltip_text:"Agregar Nuevo Articulo"
+            type:"large"
+            theme_icon_color:"Custom"
+            on_press:root.addArticle()
+<TooltipMDFloatingActionButton@MDFloatingActionButton+MDTooltip>
