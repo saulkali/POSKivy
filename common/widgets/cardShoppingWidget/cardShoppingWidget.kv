@@ -15,7 +15,15 @@
             id:text_field_amount
             size_hint_y:None
             hint_text:"cantidad"
+            on_text_validate: root.enterAmount(self.text)
             input_filter: 'float'
+        MDLabel:
+            id:label_price
+            text: "1/pz -> 13 "
+        MDLabel:
+            id:label_total
+            text: "Total -> $48"
+            font_style:"H6"
         MDIconButton:
             icon: "delete"
-            on_press: root.delete()
+            on_press: root.removeItem()

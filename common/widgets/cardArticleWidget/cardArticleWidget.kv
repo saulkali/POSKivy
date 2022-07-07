@@ -1,33 +1,41 @@
-#:import get_color_from_hex kivy.utils.get_color_from_hex
 #:import CardArticleWidget common.widgets.cardArticleWidget
 <CardArticleWidget>:
+    id:card
     line_color:(0.2, 0.2, 0.2, 0.8)
     style:"elevated"
-    on_touch_down: root.seeMore()
+    listener:None
+    article:None
+    codeBar:''
+    photoUrl: ''
+    name:''
+    amount:''
+    price:''
     size_hint_y:None
     BoxLayout:
         orientation:'vertical'
         padding:dp(8)
         AsyncImage:
             id:image_article
-            source: ""
+            source: root.photoUrl
         MDLabel:
             id:label_code_bar
             halign: "center"
-            text: ""
+            text: root.codeBar
         MDLabel:
             id:label_name
             halign: "center"
-            text: ""
+            text: root.name 
         MDTextField:
             id:text_field_amount
             size_hint_y:None
             hint_text:"cantidad"
+            text: root.amount
             icon_left:"archive"
             input_filter: 'float'
         MDTextField:
             id:text_field_price
             size_hint_y:None
+            text: root.price
             hint_text:"precio Unitario"
             icon_left:"cash"
             input_filter: 'float'
@@ -36,11 +44,11 @@
             TooltipMDIconButton:
                 icon: "delete"
                 tooltip_text: "Eliminar articulo"
-                on_press: root.delete()
+                on_press: root.confirmDeleteArticle()
             TooltipMDIconButton:
                 icon: "content-save"
                 tooltip_text: "Guardar cambios"
-                on_press: root.update()
+                on_press: root.confirmUpdateArticle()
             TooltipMDIconButton:
                 icon: "book-open"
                 tooltip_text: "ver mas detalles"

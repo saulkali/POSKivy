@@ -1,2 +1,4 @@
 __pycache__/
 key_firebase.json
+buildozer.spec
+.buildozer

@@ -1,0 +1,12 @@
+#:import MountPay modules.moduleShoppingCar.widgets.mount.MountPay
+<MountPay>:
+    id:mount_pay_box_layout
+    size_hint_y: None
+    orientation:'vertical'
+    MDTextField:
+        id:text_field_mount
+        hint_text:"Monto a pagar"
+        helper_text: "El Monto no puede ser menor al total"
+        helper_text_mode: "on_error"
+        icon_left:"cash"
+        on_text_validate: root.setMount(self.text)

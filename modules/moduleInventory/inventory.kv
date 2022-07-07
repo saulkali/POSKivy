@@ -1,4 +1,6 @@
 #:import InventoryMDCard modules.moduleInventory.inventory.InventoryMDCard
+#:include common/widgets/cardArticleWidget/cardArticleWidget.kv
+
 <InventoryMDCard>:
     BoxLayout:
         orientation:'vertical'
@@ -19,16 +21,17 @@
                 RecycleView:
                     id:recycle_view_articles
                     viewclass: 'CardArticleWidget'
-                    MDRecycleGridLayout:
-                        default_size: None, dp(400)
+                    RecycleGridLayout:
+                        default_size: None, dp(300)
                         default_size_hint: 1,None
-                        adaptive_height: True
+                        size_hint_y: None
+                        height: self.minimum_height
                         padding:dp(8)
                         spacing:dp(8)
                         cols: 3
         TooltipMDFloatingActionButton:
             id:floating_button_add_article
-            icon:'delete'
+            icon:'book-plus-multiple'
             tooltip_text:"Agregar Nuevo Articulo"
             type:"large"
             theme_icon_color:"Custom"

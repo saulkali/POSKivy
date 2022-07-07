@@ -20,12 +20,18 @@ def saveArticle(article:ArticleEntity):
     '''set new article'''
     firebase.db.child(firebaseConstants.referenceArticle).child(article.id).set(article.dict())
 
-def updateArticle(article:ArticleEntity):
-    updateQuery = firebase.db.child(firebaseConstants.referenceArticle).child(article.id).update(article.dict())
-
-def deleteArticle(article:ArticleEntity):
-    firebase.db.child(firebaseConstants.referenceArticle).child(article.id).delete()
-
+def updateArticle(article:ArticleEntity)->bool:
+    try:
+        firebase.db.child(firebaseConstants.referenceArticle).child(article.id).update(article.dict())
+        return True
+    except:
+        return False
+def deleteArticle(article:ArticleEntity)->bool:
+    try:
+        firebase.db.child(firebaseConstants.referenceArticle).child(article.id).delete()
+        return True
+    except:
+        return False
 def getArticleById(codeBar:str) -> ArticleEntity:
     articleJson = firebase.db.child(firebaseConstants.referenceArticle).child(codeBar).get()
     if articleJson != None:
