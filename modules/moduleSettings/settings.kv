@@ -1,12 +1,149 @@
-#:import SettingsScreen modules.moduleSettings.settings.SettingsScreen
+#:import SettingsScreen modules.moduleSettings.settings
 <SettingsScreen>:
+    id:settings_screen
     BoxLayout:
         orientation:'vertical'
         MDTopAppBar:
-                title:"Carrito De Ventas"
-                icon:"shopping"
-                left_action_items:
-                    [
-                    ["card-search", lambda x: root.openMainScreen(),  "Buscar Articulo"]
-                    ]
-        
+            title:"Carrito De Ventas"
+            icon:"shopping"
+            left_action_items:
+                [
+                ["card-search", lambda x: root.openMainScreen(),  "Volver al menu"]
+                ]
+        ScrollView:
+            GridLayout:
+                id:grid_container
+                cols:2
+                spacing:dp(8)
+                padding:dp(8)
+                MDCard:
+                    line_color:(0.2, 0.2, 0.2, 0.8)
+                    style:"elevated"
+                    BoxLayout:
+                        orientation:'vertical'
+                        spacing:dp(8)
+                        padding:dp(8)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            AsyncImage:
+                                source: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Juan_y_Medio-jul_2018.jpg"
+                            MDLabel:
+                                text: "Printer termic"
+                                size_hint_y:None
+                                height: dp(80)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            padding:dp(8)
+                            
+                            MDRelativeLayout:
+                                size_hint_y: None
+                                height: text_field_usb_printer.height
+                                MDTextField:
+                                    id:text_field_usb_printer
+                                    hint_text:"Direccion usb de impresora"
+                                    icon_left:'usb-port'
+                                MDIconButton:
+                                    icon: "printer-search"
+                                    pos_hint: {"center_y": .5}
+                                    pos: text_field_usb_printer.width - self.width + dp(8), 0
+                                    theme_text_color: "Hint"
+                            ToolTipMDDropDownItem:
+                                id:drop_down_item_category
+                                tooltip_text: "Categoria del articulo"
+                                text:"Categoria"
+                                on_release: self.set_item("New Item")
+                MDCard:
+                    line_color:(0.2, 0.2, 0.2, 0.8)
+                    style:"elevated"
+                    BoxLayout:
+                        orientation:'vertical'
+                        spacing:dp(8)
+                        padding:dp(8)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            AsyncImage:
+                                source: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Juan_y_Medio-jul_2018.jpg"
+                            MDLabel:
+                                text: "Printer adesive"
+                                size_hint_y:None
+                                height: dp(80)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            padding:dp(8)
+                            
+                            MDRelativeLayout:
+                                size_hint_y: None
+                                height: text_field_usb_printer.height
+                                MDTextField:
+                                    id:text_field_usb_printer
+                                    hint_text:"Direccion usb de impresora"
+                                    icon_left:'usb-port'
+                                MDIconButton:
+                                    icon: "printer-search"
+                                    pos_hint: {"center_y": .5}
+                                    pos: text_field_usb_printer.width - self.width + dp(8), 0
+                                    theme_text_color: "Hint"
+                            ToolTipMDDropDownItem:
+                                id:drop_down_item_category
+                                tooltip_text: "Categoria del articulo"
+                                text:"Categoria"
+                                on_release: self.set_item("New Item")
+                     
+                MDCard:
+                    line_color:(0.2, 0.2, 0.2, 0.8)
+                    style:"elevated"
+                    BoxLayout:
+                        orientation:'vertical'
+                        spacing:dp(8)
+                        padding:dp(8)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            AsyncImage:
+                                source: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Juan_y_Medio-jul_2018.jpg"
+                            MDLabel:
+                                text: "firebase databases"
+                                size_hint_y:None
+                                height: dp(80)
+                        BoxLayout:
+                            orientation:'horizontal'
+                            padding:dp(8)
+                            
+                            MDRelativeLayout:
+                                size_hint_y: None
+                                height: text_field_usb_printer.height
+                                MDTextField:
+                                    id:text_field_usb_printer
+                                    hint_text:"Direccion usb de impresora"
+                                    icon_left:'usb-port'
+                                MDIconButton:
+                                    icon: "printer-search"
+                                    pos_hint: {"center_y": .5}
+                                    pos: text_field_usb_printer.width - self.width + dp(8), 0
+                                    theme_text_color: "Hint"
+                            ToolTipMDDropDownItem:
+                                id:drop_down_item_category
+                                tooltip_text: "Categoria del articulo"
+                                text:"Categoria"
+                                on_release: self.set_item("New Item")
+                    MDRelativeLayout:
+                        size_hint_y: None
+                        height: text_field_usb_printer.height
+                        MDTextField:
+                            id:text_field_usb_printer
+                            hint_text:"Direccion usb de impresora"
+                            icon_left:'usb-port'
+                        MDIconButton:
+                            icon: "printer-search"
+                            pos_hint: {"center_y": .5}
+                            pos: text_field_usb_printer.width - self.width + dp(8), 0
+                            theme_text_color: "Hint"
+                MDCard:
+                    line_color:(0.2, 0.2, 0.2, 0.8)
+                    style:"elevated"
+                    MDLabel:
+                        text: "huevos"
+
+
+
+
+<ToolTipMDDropDownItem@MDDropDownItem+MDTooltip>
