@@ -30,6 +30,8 @@
             size_hint_y:None
             hint_text:"cantidad"
             text: root.amount
+            helper_text: "Guarde Cambios"
+            helper_text_mode: "on_error"
             icon_left:"archive"
             input_filter: 'float'
         MDTextField:
@@ -38,6 +40,8 @@
             text: root.price
             hint_text:"precio Unitario"
             icon_left:"cash"
+            helper_text: "Guarde Cambios"
+            helper_text_mode: "on_error"
             input_filter: 'float'
         BoxLayout:
             orientation:'horizontal'

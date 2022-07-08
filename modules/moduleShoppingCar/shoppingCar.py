@@ -3,6 +3,7 @@ from kivy.core.window import Window
 from kivymd.uix.card import MDCard
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.dialog import MDDialog
+from kivymd.uix.snackbar import Snackbar
 from kivy.clock import Clock
 from common.database.firebase import articles
 
@@ -73,7 +74,7 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
                     content_cls = content,
                     buttons = [
                         MDFlatButton(text = strings.btn_no, on_press = self.closeDialog),
-                        MDFlatButton(text = strings.btn_yes)
+                        MDFlatButton(text = strings.btn_yes,on_press = self.printerTicketSale)
                     ])
             self.dialog.open()
 
@@ -116,6 +117,9 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
         self.listShoppingCar.clear()
         self.setTotalShoppingCar()
     
+    def printerTicketSale(self,*args):
+        self.closeDialog()
+
     ##################
     ## ShoppingAux
     ##################
@@ -138,10 +142,21 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
                 amount = widget.shopping.amountArticle
             ) == False:
                 print("el articulo no fue localizado")
-
         self.closeDialog()
+        self.dialog = MDDialog(
+            title = strings.msg_ask_print_ticket_sale,
+            buttons = [
+                MDFlatButton(
+                    text = strings.btn_no, on_press = self.closeDialog),
+                MDFlatButton(
+                    text = strings.btn_yes,on_press = self.printerTicketSale
+                )
+            ]   
+        )
+        self.dialog.open()
         self.clearShoppingCar()
-
+        Snackbar(text=strings.msg_success_sale_shopping_car).open()
+        
     def getTotal(self)->float:
         total = 0.0
         for cardArticle in self.listShoppingCar:

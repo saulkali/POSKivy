@@ -20,17 +20,36 @@ from modules.moduleDetailsEmploye.detailsEmploye import DetailsEmploye
 
 class EmployesMDCard(MDCard,EmployesAux):
     dialog:MDDialog = None
+    listEmployes:list = []
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         Clock.schedule_once(lambda *args: self.getEmployes())
 
-
     def getEmployes(self):
         self.ids.recycle_view_employes.data = []
-        listEmployes = employes.getAllEmployes()
-        for employe in listEmployes:
+        self.listEmployes = employes.getAllEmployes()
+        for employe in self.listEmployes:
             self.addItemRecycleView(employe)
     
+    def filterEmployes(self):
+        self.ids.recycle_view_employes.data = []
+        rfcField = self.ids.text_field_search_employe.text.__str__()
+        if rfcField.__len__() != 0:
+            for employe in self.listEmployes:
+                if rfcField in employe.firstName or rfcField in employe.lastName or rfcField in employe.rfc:
+                    self.addItemRecycleView(employe)
+            self.clearFields()
+        else:
+            self.getEmployes()
+    
+    def setFocusField(self,field,*args):
+        field.focus = True
+
+    def clearFields(self):
+        self.ids.text_field_search_employe.text = ""
+        
+        Clock.schedule_once(lambda *args: self.setFocusField(self.ids.text_field_search_employe,*args))
     def addItemRecycleView(self,employe:EmployeEntity):
         self.ids.recycle_view_employes.data.append(
             {
@@ -79,7 +98,7 @@ class EmployesMDCard(MDCard,EmployesAux):
     def addEmploye(self):
         detailsEmploye = DetailsEmploye()
         self.dialog = MDDialog(
-            title = strings.title_create_article,
+            title = strings.title_create_employe,
             type = "custom",
             content_cls = detailsEmploye,
             buttons = [
@@ -110,7 +129,7 @@ class EmployesMDCard(MDCard,EmployesAux):
     def editEmploye(self,employe:EmployeEntity):
         detailsEmploye = DetailsEmploye(employe = employe )
         self.dialog = MDDialog(
-            title = strings.title_create_article,
+            title = strings.title_edit_employe,
             type = "custom",
             content_cls = detailsEmploye,
             buttons = [

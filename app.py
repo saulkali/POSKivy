@@ -1,11 +1,10 @@
 #kivy
 from kivymd.app import MDApp
-from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 
 #modules
 from modules.moduleMain.main import MainScreen
-from helper import getFile
+from modules.moduleSettings.settings import SettingsScreen
 
 class ManagerScreens(ScreenManager):
     def __init__(self):
@@ -14,15 +13,9 @@ class ManagerScreens(ScreenManager):
 
     def setupScreens(self):
         shoppingCarScreen = MainScreen(name="mainScreen")
+        settingsScreen = SettingsScreen(name="settingsScreen")
         self.add_widget(shoppingCarScreen)
-        
-
-Builder.load_file(getFile("common/widgets/cardShoppingWidget/cardShoppingWidget.kv"))
-Builder.load_file(getFile("modules/moduleMain/main.kv"))
-Builder.load_file(getFile("modules/moduleDetailsArticle/detailsArticle.kv"))
-Builder.load_file(getFile("modules/moduleDetailsEmploye/detailsEmploye.kv"))
-Builder.load_file(getFile("modules/moduleShoppingCar/widgets/mount.kv"))
-
+        self.add_widget(settingsScreen)
 
 class MainApp(MDApp):
     def build(self):

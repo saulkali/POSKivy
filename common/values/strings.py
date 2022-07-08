@@ -38,7 +38,7 @@ msg_error_save_employe = "Ubo un error al guardar el empleado, intente de nuevo"
 msg_success_update_employe = "Los cambios del empleado fueron guardados de manera correcta"
 msg_error_update_employe = "Error no se pudo realizar cambios al empleado intente de nuevo"
 msg_code_bar_search_is_empty = "El codigo de barra no puede estar vacio. al menos agregue 1 caracter"
-
+msg_success_sale_shopping_car = "La venta fue realizada de manera correcta"
 msg_cash_drawing_not_found = "No se encontro el portamonedas."
 
 

@@ -41,17 +41,10 @@ class InventoryMDCard(MDCard):
         self.ids.recycle_view_articles.data = []
         codeBar = self.ids.text_field_code_bar.text.__str__()
         if codeBar.__len__() > 0:
-            listFilterArticle:list = []
             for article in articles.getAllArticles():
                 if codeBar in article.id  or codeBar in article.name:
-                    listFilterArticle.append(article)
-            for article in listFilterArticle:
-                self.addItemRecycleView(article)            
-            self.ids.recycle_view_articles.refresh_from_data()
-            self.ids.recycle_view_articles.refresh_from_layout()
+                    self.addItemRecycleView(article)         
         else:
-            '''dialog = MDDialog(text = strings.msg_code_bar_search_is_empty)
-            dialog.open()'''
             self.getArticles()
         
 
@@ -75,6 +68,8 @@ class InventoryMDCard(MDCard):
             ]
             )
         self.dialog.open()
+    
+
     def dialogClose(self, *args):
         self.dialog.dismiss(force=True)
 
@@ -135,7 +130,7 @@ class InventoryMDCard(MDCard):
     def openEditArticle(self,article:ArticleEntity):
         detailsArticle = DetailsArticleScreen(article)
         self.dialog = MDDialog(
-            title = strings.title_create_article,
+            title = strings.title_edit_article,
             type = "custom",
             content_cls = detailsArticle,
             buttons = [
