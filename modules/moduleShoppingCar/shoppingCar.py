@@ -27,6 +27,7 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
     def setupKeyBoard(self):
         self._keyboard = Window.request_keyboard(self._keyboard_closed, self)
         self._keyboard.bind(on_key_down=self._on_keyboard_down)
+    
     def _keyboard_closed(self):
         self._keyboard.unbind(on_key_down=self._on_keyboard_down)
         self._keyboard = None
@@ -57,16 +58,24 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
     
     def openMountPay(self):
         self.closeDialog()
-        content = MountPay(self)
-        self.dialog = MDDialog(
-                title = strings.title_mount_pay,
-                type = "custom",
-                content_cls = content,
-                buttons = [
-                    MDFlatButton(text = strings.btn_no, on_press = self.closeDialog),
-                    MDFlatButton(text = strings.btn_yes)
-                ])
-        self.dialog.open()
+        if self.listShoppingCar.__len__() == 0:
+            self.dialog = MDDialog(
+                    title = strings.msg_shopping_car_is_empty,
+                    buttons = [
+                        MDFlatButton(text = strings.btn_yes, on_press = self.closeDialog)
+                    ])
+            self.dialog.open()
+        else:
+            content = MountPay(self)
+            self.dialog = MDDialog(
+                    title = strings.title_mount_pay,
+                    type = "custom",
+                    content_cls = content,
+                    buttons = [
+                        MDFlatButton(text = strings.btn_no, on_press = self.closeDialog),
+                        MDFlatButton(text = strings.btn_yes)
+                    ])
+            self.dialog.open()
 
     def searchArticle(self,codeBar:str):
         if codeBar.__len__() > 0:
@@ -124,8 +133,14 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
 
     def finishShoppingCar(self,pay:float):
         for widget in self.listShoppingCar:
-            print(widget)
+            if articles.deleteAmountArticle(
+                codeBar = widget.shopping.idArticle,
+                amount = widget.shopping.amountArticle
+            ) == False:
+                print("el articulo no fue localizado")
+
         self.closeDialog()
+        self.clearShoppingCar()
 
     def getTotal(self)->float:
         total = 0.0

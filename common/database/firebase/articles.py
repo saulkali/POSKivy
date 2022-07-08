@@ -39,13 +39,17 @@ def getArticleById(codeBar:str) -> ArticleEntity:
         return article
     return None
 
-def deleteAmountArticle(codeBar:str,amount:float):
-    articleJson = firebase.db.child(firebaseConstants.referenceArticle).child(codeBar).get()
-    if articleJson != None:
-        article = ArticleEntity.parse_obj(articleJson)
-        article.amount -= amount
-        firebase.db.child(firebaseConstants.referenceArticle).child(article.id).update({"amount":article.amount})
-
+def deleteAmountArticle(codeBar:str,amount:float) -> bool: 
+    try:
+        articleJson = firebase.db.child(firebaseConstants.referenceArticle).child(codeBar).get()
+        if articleJson != None:
+            article = ArticleEntity.parse_obj(articleJson)
+            article.amount -= amount
+            firebase.db.child(firebaseConstants.referenceArticle).child(article.id).update({"amount":article.amount})
+            return True
+        return False
+    except:
+        return False
 def existsArticle(codeBar:str)->bool:
     article = firebase.db.child(firebaseConstants.referenceArticle).child(codeBar).get()
     if article == None:

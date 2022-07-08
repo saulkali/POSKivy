@@ -18,9 +18,6 @@ class InventoryMDCard(MDCard):
         super(InventoryMDCard,self).__init__(**kw)
         Clock.schedule_once(lambda *kargs:self.getArticles())
         
-    def open_card(self):
-        print("card open")
-
     def addItemRecycleView(self,article:ArticleEntity):
         self.ids.recycle_view_articles.data.append({
                 "listener":self,

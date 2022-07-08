@@ -18,10 +18,9 @@ class ManagerScreens(ScreenManager):
         
 
 Builder.load_file(getFile("common/widgets/cardShoppingWidget/cardShoppingWidget.kv"))
-
 Builder.load_file(getFile("modules/moduleMain/main.kv"))
 Builder.load_file(getFile("modules/moduleDetailsArticle/detailsArticle.kv"))
-
+Builder.load_file(getFile("modules/moduleDetailsEmploye/detailsEmploye.kv"))
 Builder.load_file(getFile("modules/moduleShoppingCar/widgets/mount.kv"))
 
 

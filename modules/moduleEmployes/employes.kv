@@ -1,0 +1,30 @@
+#:import EmployesMDCard modules.moduleEmployes.employes.EmployesMDCard
+#:include common/widgets/cardEmployesWidget/cardEmployes.kv
+
+<EmployesMDCard>:
+    BoxLayout:
+        orientation:'vertical'
+        MDTextField:
+            id: text_field_search_employe
+            hint_text:'Nombre o rfc del empleado'
+            mode:'fill'
+        RecycleView:
+            id: recycle_view_employes
+            viewclass: 'CardEmployesWidget'
+            RecycleGridLayout:
+                default_size:None, dp(80)
+                default_size_hint:1, None
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(8)
+                padding: dp(8)
+                cols:1
+        
+        TooltipMDFloatingActionButton:
+            id:floating_button_add_article
+            icon:'book-plus-multiple'
+            tooltip_text:"Agregar a nuevo empleado"
+            type:"large"
+            theme_icon_color:"Custom"
+            on_press:root.addEmploye()
+<TooltipMDFloatingActionButton@MDFloatingActionButton+MDTooltip>

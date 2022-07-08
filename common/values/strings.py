@@ -29,10 +29,14 @@ msg_error_delete_article = "El articulo no se pudo eliminar del inventario inten
 msg_success_delete_article = "El articulo fue eliminado de manera correcta del inventario"
 msg_success_update_article = "El articulo fue editado de manera correcta"
 msg_error_update_article = "El articulo no se pudo editar, intente de nuevo"
+msg_success_delete_employe  = "El empleado fue eliminado de manera correcta"
+msg_error_delete_employe = "Ubo un error al intentar eliminar al empleado intente de nuevo"
 msg_employe_not_eq_password = "Contraseña Incorrecta"
-
+msg_success_save_employe = "El empleado fue guardado de manera correcta"
 msg_shopping_car_is_empty = "El carrito de compras esta vacio, agregue al menos 1 articulo"
-
+msg_error_save_employe = "Ubo un error al guardar el empleado, intente de nuevo"
+msg_success_update_employe = "Los cambios del empleado fueron guardados de manera correcta"
+msg_error_update_employe = "Error no se pudo realizar cambios al empleado intente de nuevo"
 msg_code_bar_search_is_empty = "El codigo de barra no puede estar vacio. al menos agregue 1 caracter"
 
 msg_cash_drawing_not_found = "No se encontro el portamonedas."

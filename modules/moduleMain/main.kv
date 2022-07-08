@@ -1,6 +1,7 @@
 #:import images_path kivymd.images_path
 #:include modules/moduleShoppingCar/shoppingCar.kv
 #:include modules/moduleInventory/inventory.kv
+#:include modules/moduleEmployes/employes.kv
 <MainScreen>:
     id:main_screen
     MDBoxLayout:
@@ -40,6 +41,11 @@
                 text: 'Empleados'
                 icon: 'account'
 
+                EmployesMDCard:
+                    id:card_employes
+            MDBottomNavigationItem:
+                name: 'screen 4'
+                text: 'Clientes'
+                icon: 'account'
                 MDLabel:
-                    text: 'Empleados'
-                    halign: 'center'
+                    text:"clientes"

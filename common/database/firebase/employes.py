@@ -6,17 +6,25 @@ from common.firebase import constants as firebaseConstants
 
 firebase = FireBase()
 
-def saveEmploye(employeEntity:EmployeEntity):
+def saveEmploye(employeEntity:EmployeEntity)->bool:
     '''create new employe firebase'''
-    key = firebase.db.child(firebaseConstants.referenceEmploye).push().key
-    employeEntity.id = key
-    firebase.db.child(firebaseConstants.referenceEmploye).child(key).set(employeEntity.dict())
+    try:
+        firebase.db.child(firebaseConstants.referenceEmploye).child(employeEntity.rfc).set(employeEntity.dict())
+        return True
+    except:
+        return False
+def updateEmploye(employeEntity:EmployeEntity)->bool:
+    print(employeEntity)
+    firebase.db.child(firebaseConstants.referenceEmploye).child(employeEntity.rfc).update(employeEntity.dict())
+    return True
 
-def updateEmploye(employeEntity:EmployeEntity):
-    firebase.db.child(firebaseConstants.referenceEmploye).child(employeEntity.id).update(employeEntity.dict())
 
-def deleteEmploye(employeEntity:EmployeEntity):
-    firebase.db.child(firebaseConstants.referenceEmploye).child(employeEntity.id).delete()
+def deleteEmploye(employeEntity:EmployeEntity)->bool:
+    try:
+        firebase.db.child(firebaseConstants.referenceEmploye).child(employeEntity.rfc).delete()
+        return True
+    except:
+        return False
 
 def getAllEmployes() -> list:
     '''get all employes firebase'''
@@ -25,7 +33,6 @@ def getAllEmployes() -> list:
     if employesJson != None:
         for key,value in employesJson.items():
             employeEntity = EmployeEntity.parse_obj(value)
-            employeEntity.id = key
             listEmployes.append(employeEntity)
     return listEmployes
 

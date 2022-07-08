@@ -1,0 +1,10 @@
+#:import CardEmployesWidget common.widgets.cardEmployesWidget.cardEmployes.CardEmployesWidget
+<CardEmployesWidget>:
+    photoUrl: ''
+    on_press:root.openEditEmploye()
+    ImageLeftWidget:
+        source: root.photoUrl
+    
+    IconRightWidget:
+        icon: "delete"
+        on_press: root.confirmDeleteEmploye()

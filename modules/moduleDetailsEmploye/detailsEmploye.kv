@@ -1,0 +1,58 @@
+#:import DetailsEmploye modules.moduleDetailsEmploye
+<DetailsEmploye>:
+    id:details_employe_box_layout
+    orientation:'vertical'
+    isEdit: False
+    size_hint_y: None
+    height: "500dp"
+    ScrollView:
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+
+            AsyncImage:
+                id:image_photo
+                
+            MDTextField:
+                id:text_field_photo_url
+                hint_text:"url de la imagen"
+                icon_left:"link"
+            MDTextField:
+                id:text_field_rfc
+                hint_text:"rfc"
+                icon_left:"email"
+            MDTextField:
+                id:text_field_first_name
+                hint_text:"Nombre"
+                icon_left:"barcode"
+            MDTextField:
+                id:text_field_last_name
+                hint_text:"Apellidos"
+                icon_left:"book-open-outline"
+            MDTextField:
+                id:text_field_password
+                hint_text:"Contraseña"
+                icon_left:"book-open-outline"
+            MDTextField:
+                id:text_field_confirm_password
+                hint_text:"Contraseña"
+                icon_left:"book-open-outline"
+            MDTextField:
+                id:text_field_phone
+                hint_text:"Telefono"
+                icon_left:"phone"
+            MDTextField:
+                id:text_field_address
+                hint_text:"Direccion"
+                icon_left:"phone"
+            MDTextField:
+                id:text_field_email
+                hint_text:"Correo Electronico"
+                icon_left:"email"
+            ToolTipMDDropDownItem:
+                id:drop_down_item_permission
+                tooltip_text: "Permisos de usuario"
+                text:"administrador"
+                on_release: self.set_item("New Item")
+<ToolTipMDDropDownItem@MDDropDownItem+MDTooltip>
