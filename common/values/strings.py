@@ -101,11 +101,13 @@ tooltip_text_permission_user = "Permisos de usuario"
 tooltip_text_mode_sale = "Modo de venta"
 tooltip_text_category = "Categoria"
 tooltip_text_clear_shopping_car = "Limpar carrito de ventas"
+
 #########################
 ## MDTopAppBar
 ########################
 top_app_bar_title_shopping_car = "Carrito de ventas"
 top_app_bar_title_settings = "Configuraciones"
+
 ########################
 ## MDBottomNavigationItem
 ########################
