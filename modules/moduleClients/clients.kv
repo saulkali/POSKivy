@@ -1,0 +1,21 @@
+#:import strings common.values.strings
+#:import ClientsMDCard modules.moduleClients.clients.ClientsMDCard
+
+#:include common/widgets/cardClientWidget/cardClient.kv
+
+<ClientsMDCard>:
+    BoxLayout:
+        orientation:'vertical'
+        MDTextField:
+            hint_text: strings.hint_text_search_client
+        RecycleView:
+            id: recycle_view_client
+            viewclass: 'CardClientWidget'
+            RecycleGridLayout:
+                default_size:None, dp(80)
+                default_size_hint:1, None
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(8)
+                padding: dp(8)
+                cols:1

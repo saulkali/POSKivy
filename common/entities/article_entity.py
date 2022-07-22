@@ -15,6 +15,7 @@ class ArticleEntity(BaseModel):
     category:str = ""
     vertical:str = ""
     horizontal:str = ""
+    
 
     @validator("id")
     def idValidate(cls,text):

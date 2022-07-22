@@ -1,4 +1,6 @@
 #:import InventoryMDCard modules.moduleInventory.inventory.InventoryMDCard
+#:import strings common.values.strings
+
 #:include common/widgets/cardArticleWidget/cardArticleWidget.kv
 <InventoryMDCard>:
     BoxLayout:
@@ -10,7 +12,7 @@
             height: text_field_code_bar.height
             MDTextField:
                 id: text_field_code_bar
-                hint_text:"codigo de barra"
+                hint_text:strings.hint_text_code_bar
                 icon_left: "barcode"
                 on_text_validate:root.filterArticles()
                 mode:"fill"
@@ -31,7 +33,7 @@
         TooltipMDFloatingActionButton:
             id:floating_button_add_article
             icon:'book-plus-multiple'
-            tooltip_text:"Agregar Nuevo Articulo"
+            tooltip_text:strings.tooltip_text_add_article
             type:"large"
             theme_icon_color:"Custom"
             on_press:root.addArticle()

@@ -1,4 +1,6 @@
 #:import EmployesMDCard modules.moduleEmployes.employes.EmployesMDCard
+#:import strings common.values.strings
+
 #:include common/widgets/cardEmployesWidget/cardEmployes.kv
 
 <EmployesMDCard>:
@@ -8,7 +10,7 @@
         padding:dp(8)
         MDTextField:
             id: text_field_search_employe
-            hint_text:'Nombre o rfc del empleado'
+            hint_text:strings.hint_text_search_employe
             on_text_validate:root.filterEmployes()
             mode:'fill'
         RecycleView:
@@ -26,7 +28,7 @@
         TooltipMDFloatingActionButton:
             id:floating_button_add_article
             icon:'book-plus-multiple'
-            tooltip_text:"Agregar a nuevo empleado"
+            tooltip_text:strings.tooltip_text_add_employe
             type:"large"
             theme_icon_color:"Custom"
             on_press:root.addEmploye()

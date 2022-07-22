@@ -1,4 +1,5 @@
 #:import DetailsArticleScreen modules.moduleDetailsArticle
+#:import strings common.values.strings
 <DetailsArticleScreen>:
     id:details_article_box_layout
     orientation:'vertical'
@@ -15,23 +16,23 @@
                 id:image_photo
             MDTextField:
                 id:text_field_photo_url
-                hint_text:"url de la imagen"
+                hint_text:strings.hint_text_photo_url
                 icon_left:"link"
             MDTextField:
                 id:text_field_code_bar
-                hint_text:"codigo de barra"
+                hint_text:strings.hint_text_code_bar
                 icon_left:"barcode"
             MDTextField:
                 id:text_field_code_bar_confirm
-                hint_text:"confirmar codigo de barra"
+                hint_text:strings.hint_text_confirm_code_bar
                 icon_left:"barcode"
             MDTextField:
                 id:text_field_name
-                hint_text:"nombre del articulo"
+                hint_text: strings.hint_text_first_name
                 icon_left:"book-open-outline"
             MDTextField:
                 id:text_field_description
-                hint_text:"despcripcion del articulo"
+                hint_text:strings.hint_text_description
                 icon_left:"book-open-outline"
             GridLayout:
                 cols:2
@@ -41,38 +42,38 @@
                 
                 MDTextField:
                     id:text_field_amount
-                    hint_text: "Cantidad"
+                    hint_text: strings.hint_text_amount
                     icon_left: "archive"
                 
                 MDTextField:
                     id:text_field_price
-                    hint_text: "Precio Unitario"
+                    hint_text: strings.hint_text_price
                     icon_left: "cash"
                 MDTextField:
                     id: text_field_off_sale
-                    hint_text: "Descuento"
+                    hint_text: strings.hint_text_off_sale
                     icon_left: "sale"
                 ToolTipMDDropDownItem:
                     id:drop_down_item_mode_shopping
-                    tooltip_text: "Modo de venta "
+                    tooltip_text: strings.tooltip_text_mode_sale
                     text:"Modo de venta"
                     on_release: self.set_item("New Item")
                 ToolTipMDDropDownItem:
                     id:drop_down_item_category
-                    tooltip_text: "Categoria del articulo"
+                    tooltip_text: strings.tooltip_text_category
                     text:"Categoria"
                     on_release: self.set_item("New Item")
                 
                 MDTextField:
                     id: text_field_shelf
-                    hint_text: "Estante"
+                    hint_text: strings.hint_text_shelf
                     icon_left: "table"
                 MDTextField:
                     id: text_field_vertical
-                    hint_text: "Vertical"
+                    hint_text: strings.hint_text_vertical
                     icon_left: "arrow-right"
                 MDTextField:
                     id: text_field_horizontal
-                    hint_text: "Horizontal"
+                    hint_text: strings.hint_text_horizontal
                     icon_left: "arrow-down"
 <ToolTipMDDropDownItem@MDDropDownItem+MDTooltip>

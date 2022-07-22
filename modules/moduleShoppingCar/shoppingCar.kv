@@ -1,4 +1,5 @@
-#import ShoppingCarMDCard modules.moduleShoppingCar.shoppingCar.ShoppingCardMDCard
+#:import ShoppingCarMDCard modules.moduleShoppingCar.shoppingCar.ShoppingCarMDCard
+#:import strings common.values.strings
 <ShoppingCarMDCard>:
     padding:dp(8)
     spacing:dp(8)
@@ -34,7 +35,7 @@
                     BoxLayout:
                         orientation:'horizontal'
                         MDLabel:
-                            text:"Total"
+                            text: strings.label_text_total
                             font_style:"H6"
                         MDLabel:
                             id:label_total_pay
@@ -43,7 +44,7 @@
                     BoxLayout:
                         orientation:'horizontal'
                         MDLabel:
-                            text:"Cambio"
+                            text:strings.label_text_change
                             font_style:"H6"
                         MDLabel:
                             id:label_change
@@ -52,7 +53,7 @@
                     BoxLayout:
                         orientation:'horizontal'
                         MDLabel:
-                            text:"Pago"
+                            text:strings.label_text_pay
                             font_style:"H6"
                         MDLabel:
                             id:label_pay_client
@@ -64,7 +65,7 @@
                     id:floating_button_clear_shopping_car
                     icon:'basket-off'
                     type:"large"
-                    tooltip_text: "Limpiar Carrito de ventas"
+                    tooltip_text: strings.tooltip_text_clear_shopping_car
                     theme_icon_color:"Custom"
                     on_press: root.clearShoppingCar()
 
@@ -72,7 +73,7 @@
                     id:floating_button_clear_shopping_car
                     icon:'basket-check'
                     type:"large"
-                    tooltip_text: "Realizar venta"
+                    tooltip_text: strings.tooltip_text_relize_sale
                     theme_icon_color:"Custom"
                     on_press: root.openMountPay()
 

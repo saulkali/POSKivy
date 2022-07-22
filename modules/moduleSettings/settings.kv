@@ -1,14 +1,16 @@
 #:import SettingsScreen modules.moduleSettings.settings
+#:import strings common.values.strings
+
 <SettingsScreen>:
     id:settings_screen
     BoxLayout:
         orientation:'vertical'
         MDTopAppBar:
-            title:"Carrito De Ventas"
+            title:strings.top_app_bar_title_settings
             icon:"shopping"
             left_action_items:
                 [
-                ["card-search", lambda x: root.openMainScreen(),  "Volver al menu"]
+                ["arrow-left", lambda x: root.openMainScreen(),  "Volver al menu"]
                 ]
         ScrollView:
             GridLayout:
@@ -107,7 +109,6 @@
                         BoxLayout:
                             orientation:'horizontal'
                             padding:dp(8)
-                            
                             MDRelativeLayout:
                                 size_hint_y: None
                                 height: text_field_usb_printer.height
