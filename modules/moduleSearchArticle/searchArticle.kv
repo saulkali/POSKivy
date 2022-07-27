@@ -1,0 +1,20 @@
+#:import strings common.values.strings
+#:import SearchArticle modules.moduleSearchArticle.searchArticle.SearchArticle
+#:include common/widgets/cardArticleSearchWidget/cardArticleSearch.kv
+<SearchArticle>:
+    orientation:'vertical'
+    size_hint_y: None
+    height: "500dp"
+    MDTextField:
+        hint_text: strings.hint_text_search_article
+    RecycleView:
+            id: recycle_view_article
+            viewclass: 'CardArticleSearchWidget'
+            RecycleGridLayout:
+                default_size:None, dp(80)
+                default_size_hint:1, None
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: dp(8)
+                padding: dp(8)
+                cols:1

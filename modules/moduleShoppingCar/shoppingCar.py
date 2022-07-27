@@ -7,6 +7,8 @@ from kivymd.uix.snackbar import Snackbar
 from kivy.clock import Clock
 from common.database.firebase import articles
 
+from modules.moduleSearchArticle.searchArticle import SearchArticle
+
 from common.widgets.cardShoppingWidget.cardShoppingWidget import CardShoppingWidget
 from common.entities.shopping_car_entity import ShoppingCardEntity
 
@@ -77,6 +79,22 @@ class ShoppingCarMDCard(MDCard,ShoppingAux):
                         MDFlatButton(text = strings.btn_yes,on_press = self.printerTicketSale)
                     ])
             self.dialog.open()
+
+
+    def openSearchArticle(self):
+        searchArticleMenu = SearchArticle()
+        self.dialog = MDDialog(
+            title = strings.title_search_article,
+            type = "custom",
+            content_cls = searchArticleMenu,
+            buttons = [
+                MDFlatButton(
+                    text = strings.btn_exit,
+                    on_press =self.closeDialog
+                )
+            ]
+        )
+        self.dialog.open()
 
     def searchArticle(self,codeBar:str):
         if codeBar.__len__() > 0:

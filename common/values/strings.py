@@ -10,7 +10,7 @@ title_create_article = "Añadir Articulo"
 title_edit_employe = "Editar Empleado"
 title_create_employe = "Añadir Empleado"
 title_mount_pay = "Ingrese monto."
-
+title_search_article = "Buscar Articulo"
 #####################################
 ## MESSAGE BODY
 ####################################
@@ -48,6 +48,7 @@ msg_type_system_not_found = "Sistema operativo desconocido"
 
 btn_yes = "Confirmar"
 btn_no = "Cancelar"
+btn_exit = "Salir"
 
 
 ##############################
@@ -67,6 +68,7 @@ hint_text_search_client = "Ingrese nombre de cliente o su rfc"
 hint_text_code_bar = "Codigo De Barras"
 hint_text_confirm_code_bar = "Confirmar codigo de barras"
 hint_text_search_employe = "Ingrese nombre o rfc del empleado"
+hint_text_search_article = "Ingrese nombre o codigo de barra"
 hint_text_photo_url = "Url de la imagen"
 hint_text_rfc = "Rfc"
 hint_text_description = "Descripcion"
@@ -82,7 +84,8 @@ hint_text_price = "Precio Unitario"
 hint_text_off_sale = "Descuento"
 hint_text_shelf = "Estante"
 hint_text_vertical = "Vertical"
-hint_text_horizonal = "Horizontal"
+hint_text_horizontal = "Horizontal"
+
 ##########################
 ## MDLabel
 ##########################
@@ -101,7 +104,8 @@ tooltip_text_permission_user = "Permisos de usuario"
 tooltip_text_mode_sale = "Modo de venta"
 tooltip_text_category = "Categoria"
 tooltip_text_clear_shopping_car = "Limpar carrito de ventas"
-
+tooltip_text_search_article = "Buscar Articulo"
+tooltip_text_settings_system = "Ajustes Del sistema"
 #########################
 ## MDTopAppBar
 ########################

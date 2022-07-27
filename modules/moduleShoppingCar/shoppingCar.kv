@@ -17,6 +17,16 @@
                     icon_left: "barcode"
                     on_text_validate: root.searchArticle(self.text)
                     mode:"fill"
+
+                TooltipMDIconButton:
+                    icon: "card-search-outline"
+                    pos_hint: {"center_y": .5}
+                    on_press:root.openSearchArticle()
+                    pos: text_field_code_bar.width - self.width + dp(8), 0
+                    theme_text_color: "Hint"
+                    tooltip_text: strings.tooltip_text_search_article
+
+                
             MDCard:
                 line_color:(0.2, 0.2, 0.2, 0.8)
                 style:"elevated"
@@ -78,3 +88,4 @@
                     on_press: root.openMountPay()
 
 <TooltipMDFloatingActionButton@MDFloatingActionButton+MDTooltip>
+<TooltipMDIconButton@MDIconButton+MDTooltip>
