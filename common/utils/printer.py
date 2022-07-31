@@ -1,6 +1,3 @@
-#pyside 6
-from PySide6.QtWidgets import QMessageBox
-
 #escpos
 from escpos.printer import File,Usb
 
@@ -31,12 +28,12 @@ Cuauhtemoc, Cuencame, Dgo  35850\n\n
 class PrinterEscPos():
     def __init__(self):
         super().__init__()
-        self.DEV = SettingsManager().printer.dev
-
+        self.DEV = SettingsManager().printer.usbPort
+        
     def saveNewPortPrinter(self):
         '''metodo para guardar la nueva ruta del DEV'''
         settings = SettingsManager()
-        settings.printer.dev = self.DEV
+        settings.printer.usbPort = self.DEV
         settings.save()
     
     def scanPortPrinter(self):
@@ -69,7 +66,8 @@ class PrinterEscPos():
                     print("Open Cash Drawing on linux")
                     os.system(f"echo -en '\033p011' > {self.DEV}")
                 except:
-                    QMessageBox.warning(None,strings.msg_error,strings.msg_cash_drawing_not_found)
+                    pass
+                    #QMessageBox.warning(None,strings.msg_error,strings.msg_cash_drawing_not_found)
         
             case strings.system_windows:
                 try:
@@ -83,9 +81,11 @@ class PrinterEscPos():
                     resultCommand = os.system(f"echo -en '\033p011' > {self.DEV}")
                     print("result command:", resultCommand)
                 except:
-                    QMessageBox.warning(None,strings.msg_error,strings.msg_cash_drawing_not_found)
+                    pass
+                    #QMessageBox.warning(None,strings.msg_error,strings.msg_cash_drawing_not_found)
             case _:
-                QMessageBox.warning(None,strings.msg_error,strings.msg_type_system_not_found)
+                pass
+                #QMessageBox.warning(None,strings.msg_error,strings.msg_type_system_not_found)
 
     def printSale(self,saleEntity:SaleEntity):
         try:
@@ -114,8 +114,10 @@ class PrinterEscPos():
             dev.text("    ¡GRACIAS POR SU COMPRA! \n")
             dev.cut()
             dev.close()
+
         except FileNotFoundError:
+            '''
             resultPrinterTicket = QMessageBox().warning(None,strings.msg_error,strings.msg_ask_reprinter_ticket_sale,QMessageBox.Yes|QMessageBox.No)
             if resultPrinterTicket == QMessageBox.Yes:
                 self.scanPortPrinter()#buscamos el puerto de la impresora
-                self.printSale(saleEntity)
+                self.printSale(saleEntity)'''

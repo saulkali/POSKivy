@@ -5,7 +5,7 @@ from common.entities.article_entity import ArticleEntity
 
 firebase = FireBase()
 
-def getAllArticles()->list:
+def getAllArticles()->list[ArticleEntity]:
     '''get all articles ->list type ArticleEntity'''
     listArticles = []
     articlesJson = firebase.db.child(firebaseConstants.referenceArticle).get()

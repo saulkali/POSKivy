@@ -1,0 +1,16 @@
+#:import LoginScreen modules.moduleLogin.login
+<LoginScreen>:
+    BoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            text:"Inicio De Sesion"
+        MDDropDownItem:
+            id: drop_item_username
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            text: 'Item'
+            on_release: self.set_item("New Item")
+        
+        MDTextField:
+            hint_text: "Constraseña"
+            mode: "fill"
+            fill_color: 0, 0, 0, .4
